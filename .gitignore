@@ -1,2 +1,11 @@
+# IDE
 .qtcreator
-build
+.idea/
+.claude/
+
+# Build
+build/
+cmake-build-*/
+
+# Database
+*.db

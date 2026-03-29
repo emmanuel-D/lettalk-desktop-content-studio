@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class DatabaseManager;
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -14,10 +16,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(DatabaseManager *dbManager, QWidget *parent = nullptr);
     ~MainWindow() override;
 
 private:
     Ui::MainWindow *ui;
+    DatabaseManager *m_dbManager;
 };
+
 #endif // MAINWINDOW_H
