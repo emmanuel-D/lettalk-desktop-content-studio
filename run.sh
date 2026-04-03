@@ -1,5 +1,6 @@
 #!/bin/bash
 
-export PATH="$HOME/Qt/Tools/CMake/CMake.app/Contents/bin:$HOME/Qt/6.9.1/macos/bin:$PATH"
+# Add Qt and CMake to the PATH (Linux)
+export PATH="$HOME/Qt/Tools/CMake/bin:$HOME/Qt/6.11.0/gcc_64/bin:$PATH"
 
-qt-cmake -S . -B build && cmake --build build && ./build/LetTalkContentStudio.app/Contents/MacOS/LetTalkContentStudio
+cmake -S . -B build && cmake --build build && ./build/LetTalkContentStudio

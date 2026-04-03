@@ -15,7 +15,13 @@ Add Qt tools to your PATH by adding this line to your `~/.zshrc`:
 export PATH="$HOME/Qt/Tools/CMake/CMake.app/Contents/bin:$HOME/Qt/6.9.1/macos/bin:$PATH"
 ```
 
-Then reload: `source ~/.zshrc`
+For Ubuntu Linux users, please add this line instead to your `~/.bashrc`:
+
+```bash
+export PATH="$HOME/Qt/Tools/CMake/bin:$HOME/Qt/6.11.0/gcc_64/bin:$PATH"
+```
+
+Then reload: `source ~/.zshrc` oder `source ~/.bashrc` for linux user.
 
 ## Build & Run
 
