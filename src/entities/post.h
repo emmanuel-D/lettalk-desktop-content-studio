@@ -8,7 +8,11 @@
 struct Post
 {
     int id = -1;
+    QString title;
+    QString category;
+    QString content;
     QDateTime createdAt;
+    QDateTime updated_at;
     // TODO: Add the remaining fields based on the 'posts' table schema
     //       Hint: look at databasemanager.cpp → createTables()
 };
