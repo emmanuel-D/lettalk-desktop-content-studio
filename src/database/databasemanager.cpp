@@ -47,10 +47,15 @@ bool DatabaseManager::createTables()
 {
     QSqlQuery query;
 
+    query.exec("DROP TABLE IF EXISTS posts");
     bool success = query.exec(
-        "CREATE TABLE IF NOT EXISTS posts ("
+        "CREATE TABLE posts ("
         "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        "  created_at DATETIME DEFAULT CURRENT_TIMESTAMP"
+        "  title TEXT,"
+        "  content TEXT,"
+        "  category TEXT,"
+        "  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,"
+        "  update_at DATETIME DEFAULT CURRENT_TIMESTAMP"
         ")"
     );
 
