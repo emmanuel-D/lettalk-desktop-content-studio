@@ -55,7 +55,7 @@ bool DatabaseManager::createTables()
         "  content TEXT,"
         "  category TEXT,"
         "  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,"
-        "  update_at DATETIME DEFAULT CURRENT_TIMESTAMP"
+        "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP"
         ")"
     );
 
