@@ -19,7 +19,7 @@
          {":content", post.content},
          {":category", post.category},
          {":created_at", post.createdAt},
-         {":updated_at", post.updated_at}
+         {":updated_at", post.updatedAt}
      };
 
      if (isUpdate) {
@@ -36,7 +36,7 @@
      post.content = query.value("content").toString();
      post.category = query.value("category").toString();
      post.createdAt = query.value("created_at").toDateTime();
-     post.updated_at = query.value("updated_at").toDateTime();
+     post.updatedAt = query.value("updated_at").toDateTime();
 
      return post;
  }
@@ -46,8 +46,8 @@
     // TODO: INSERT into posts table, then set post.id from query.lastInsertId()
     QSqlQuery query;
     query.prepare(
-    "INSERT INTO posts(id, title, content, category, created_at, updated_at)"
-        "VALUES (:id, :title, :content, :category, :created_at, :updated_at)"
+    "INSERT INTO posts(title, content, category, created_at, updated_at) "
+    "VALUES (:title, :content, :category, :created_at, :updated_at)"
     );
 
     auto values = toMap(post, false);
@@ -70,7 +70,7 @@ bool PostRepository::update(const Post &post)
 {
     // TODO: UPDATE posts SET ... WHERE id = :id
      QSqlQuery query;
-     query.prepare("UPDATE posts SET"
+     query.prepare("UPDATE posts SET "
                     "title = :title, "
                     "content = :content, "
                     "category = :category, "
@@ -140,7 +140,7 @@ QList<Post> PostRepository::findAll() const
 {
     // TODO: SELECT * FROM posts ORDER BY updated_at DESC
      QSqlQuery query;
-     query.prepare("SELECT * FROM posts ORDER BY update_at DESC");
+     query.prepare("SELECT * FROM posts ORDER BY updated_at DESC");
 
      if (!query.exec()) {
          qWarning() << "Failed to select all the posts in the 'posts' table:" << query.lastError().text();
