@@ -12,7 +12,7 @@ struct Post
     QString category;
     QString content;
     QDateTime createdAt;
-    QDateTime updated_at;
+    QDateTime updatedAt;
     // TODO: Add the remaining fields based on the 'posts' table schema
     //       Hint: look at databasemanager.cpp → createTables()
 };

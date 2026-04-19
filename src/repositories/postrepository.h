@@ -4,9 +4,13 @@
 #include "../entities/post.h"
 
 #include <QList>
+#include <QSqlQuery>
 
 class PostRepository
 {
+private:
+    QMap<QString, QVariant> toMap(const Post &post, bool isUpdate);
+    Post mapToPost(const QSqlQuery &query) const;
 public:
     PostRepository() = default;
 
