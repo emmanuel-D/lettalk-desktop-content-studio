@@ -10,25 +10,56 @@
 
 bool PostService::createPost(Post &post)
 {
-    return false;
+    if (post.title.isEmpty()) {
+        qWarning() << "Title is empty";
+        return false;
+    }
+
+    const QDateTime now = QDateTime::currentDateTimeUtc();
+    post.createdAt = now;
+    post.createdAt = now;
+
+    qInfo() << "A new post created successfully.";
+    return m_repository.save(post);
 }
 
 bool PostService::updatePost(const Post &post)
 {
-    return false;
+    if (post.id <= 0) {
+        qWarning() << "Id is invalid.";
+        return false;
+    }
+
+    Post updatedPost = post;
+    updatedPost.updatedAt = QDateTime::currentDateTimeUtc();
+
+    qInfo() << "Post updated successfully.";
+    return m_repository.update(updatedPost);
 }
 
 bool PostService::deletePost(int id)
 {
-    return false;
+    if (id <= 0) {
+        qWarning() << "Id is invalid.";
+        return false;
+    }
+
+    qInfo() << "Post deleted successfully.";
+    return m_repository.remove(id);
 }
 
 Post PostService::getPost(int id) const
 {
-    return Post{};
+    if (id <= 0) {
+        qWarning() << "Id is invalid.";
+        return Post{};
+    }
+
+    qInfo() << "Post fond successfully.";
+    return m_repository.findById(id);
 }
 
 QList<Post> PostService::getAllPosts() const
 {
-    return {};
+    return m_repository.findAll();
 }
