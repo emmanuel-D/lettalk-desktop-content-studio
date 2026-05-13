@@ -15,12 +15,20 @@ bool PostService::createPost(Post &post)
         return false;
     }
 
+    if (post.content.isEmpty()) {
+        qWarning() << "Content is empty";
+        return false;
+    }
+
     const QDateTime now = QDateTime::currentDateTimeUtc();
     post.createdAt = now;
-    post.createdAt = now;
+    post.updatedAt = now;
 
-    qInfo() << "A new post created successfully.";
-    return m_repository.save(post);
+    bool const result = m_repository.save(post);
+    if (!result) {
+        qWarning() << "Failed to save the post.";
+    }
+    return result;
 }
 
 bool PostService::updatePost(const Post &post)
@@ -33,8 +41,12 @@ bool PostService::updatePost(const Post &post)
     Post updatedPost = post;
     updatedPost.updatedAt = QDateTime::currentDateTimeUtc();
 
-    qInfo() << "Post updated successfully.";
-    return m_repository.update(updatedPost);
+    bool const result = m_repository.update(updatedPost);
+    if (!result) {
+        qWarning() << "Failed to update the post.";
+    }
+
+    return result;
 }
 
 bool PostService::deletePost(int id)
@@ -44,8 +56,12 @@ bool PostService::deletePost(int id)
         return false;
     }
 
-    qInfo() << "Post deleted successfully.";
-    return m_repository.remove(id);
+    bool const result = m_repository.remove(id);
+    if (!result) {
+        qWarning() << "Failed to delete the post.";
+    }
+
+    return result;
 }
 
 Post PostService::getPost(int id) const
@@ -55,7 +71,7 @@ Post PostService::getPost(int id) const
         return Post{};
     }
 
-    qInfo() << "Post fond successfully.";
+    qInfo() << "Post found successfully.";
     return m_repository.findById(id);
 }
 
