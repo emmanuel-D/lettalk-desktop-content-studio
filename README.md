@@ -37,6 +37,13 @@ This script configures, builds and starts the app in one step.
 ├── main.cpp                         Entry point
 ├── run.sh                           Build & run script
 ├── BOARD.md                         Project board (tasks tracking)
+├── docs/                            Developer documentation (UML + flows)
+│   ├── README.md                    Start here ← read this first
+│   ├── 01-architecture-overview.md  Layered architecture
+│   ├── 02-data-model.md             Entities, ER diagram, sample data
+│   ├── 03-class-diagram.md          Full UML class diagram
+│   ├── 04-flows.md                  Sequence diagrams per operation
+│   └── 05-end-to-end-example.md     One post: UI form → C++ entity → SQL rows
 └── src/
     ├── database/                    DB connection & schema setup
     │   └── databasemanager.h/cpp
@@ -49,6 +56,9 @@ This script configures, builds and starts the app in one step.
     └── ui/                          Qt Widgets (like @Controller)
         └── mainwindow.h/cpp/ui
 ```
+
+📖 **New to the project?** Start with [`docs/README.md`](docs/README.md) — it walks through
+the architecture, data model and runtime flows with UML and Mermaid diagrams.
 
 ### Architecture
 
