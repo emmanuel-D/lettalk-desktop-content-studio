@@ -15,7 +15,7 @@
 - [X] Add remaining columns to posts table (title, content, category, updated_at)
 - [X] Add matching fields to Post entity (`post.h`)
 - [X] Implement PostRepository methods (save, update, remove, findById, findAll)
-- [ ] Wire PostService to call PostRepository
+- [X] Wire PostService to call PostRepository
 - [ ] Create tags table and Tag entity
 - [ ] Create post_tags junction table
 - [ ] Test CRUD operations via debug output
