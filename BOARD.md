@@ -12,10 +12,10 @@
 
 ## Sprint 1 — Database & Environment (In Progress)
 
-- [ ] Add remaining columns to posts table (title, content, category, updated_at)
-- [ ] Add matching fields to Post entity (`post.h`)
-- [ ] Implement PostRepository methods (save, update, remove, findById, findAll)
-- [ ] Wire PostService to call PostRepository
+- [X] Add remaining columns to posts table (title, content, category, updated_at)
+- [X] Add matching fields to Post entity (`post.h`)
+- [X] Implement PostRepository methods (save, update, remove, findById, findAll)
+- [X] Wire PostService to call PostRepository
 - [ ] Create tags table and Tag entity
 - [ ] Create post_tags junction table
 - [ ] Test CRUD operations via debug output
