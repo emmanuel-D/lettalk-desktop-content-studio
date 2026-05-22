@@ -47,7 +47,7 @@ bool DatabaseManager::createTables()
 {
     QSqlQuery query;
 
-    query.exec("DROP TABLE IF EXISTS posts");
+    query.exec("CREATE TABLE IF NOT EXISTS posts");
     bool success = query.exec(
         "CREATE TABLE posts ("
         "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -61,6 +61,19 @@ bool DatabaseManager::createTables()
 
     if (!success) {
         qWarning() << "Failed to create 'posts' table:" << query.lastError().text();
+        return false;
+    }
+
+    success = query.exec(
+        "CREATE TABLE IF NOT EXISTS tags ("
+        "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "  name TEXT,"
+        "  created_at DATETIME DEFAULT CURRENT_TIMESTAMP"
+        ")"
+    );
+
+    if (!success) {
+        qWarning() << "Failed to create 'tags' table:" << query.lastError().text();
         return false;
     }
 
