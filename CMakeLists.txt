@@ -28,6 +28,7 @@ qt_add_executable(LetTalkContentStudio
 
     # Entities
     src/entities/post.h
+    src/entities/tag.h
 
     # Repositories
     src/repositories/postrepository.h
